@@ -25,7 +25,7 @@ pushd ../../desktop/core/src/desktop/static/desktop/js/autocomplete/jison
 cat syntax_header.jison sql_main.jison sql_valueExpression.jison  sql_alter.jison sql_analyze.jison sql_create.jison sql_drop.jison sql_grant.jison sql_insert.jison sql_load.jison sql_set.jison sql_show.jison sql_update.jison sql_use.jison syntax_footer.jison > sqlSyntaxParser.jison
 
 echo "Creating SQL syntax parser..."
-jison sqlSyntaxParser.jison sql.jisonlex
+/Users/xuexiaokang/Documents/github/Jo/jison/lib/cli.js sqlSyntaxParser.jison sql.jisonlex
 # Workaround for a parser bug where it reports the location of the previous token on error (pull-request submitted for jison)
 # We're also adding a ruleId to the parser error composed of the last two stack ID's and used for suppressing errors in the UI
 sed -i '' 's/loc: yyloc,/loc: lexer.yylloc, ruleId: stack.slice(stack.length - 2, stack.length).join(''),/' sqlSyntaxParser.js
